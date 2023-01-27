@@ -18,8 +18,7 @@ export default function TextForm(props) {
 const copyText=()=>{
   var newText=document.getElementById("my-box");
   newText.select();
-   navigator.clipboard.writeText(newText.value
-    );
+   navigator.clipboard.writeText(newText.value);
 }
 
     const handleOnChange=(event)=>
@@ -49,8 +48,8 @@ const copyText=()=>{
     </div>
     <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
       <h2>Text summary</h2>
-      <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words {text.length} characters</p>
-      <p>{0.008*text.split(" ").filter((element)=>{return element.length!==0}).length} minutes read</p>
+      <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words {text.length} characters</p>
+      <p>{0.008*text.split(/s+/).filter((element)=>{return element.length!==0}).length} minutes read</p>
       <h2>Preview</h2>
       <p>{text}</p>
     </div>
