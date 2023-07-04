@@ -1,9 +1,14 @@
 .form-group
 {
-    padding-bottom: 5%;
+    padding-bottom: 3%;
 }
 
 .modal-class
 {
-    padding-bottom: 5%;
+    padding-bottom: 3%;
+}
+
+.submit-btn-div
+{
+    text-align: center;
 }

@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { GrammarlyEditorPlugin } from "@grammarly/editor-sdk-react";
 import {Modal} from 'react-bootstrap';
+import Spinner from './Spinner';
 import '../index.css';
 
 
 export default function TextForm(props) {
 
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState({state: false})
+  const[loading,setloading]=useState(false);
 
   const[audioform,setaudioform]=useState({audioFile: null})
   const [text, setText] = useState("");
 
     const handleformsubmit=async(event)=>{
       event.preventDefault();
+      setloading(true);
       const audioformdata = new FormData()
       audioformdata.append('audioFile',audioform.audioFile)
       const response = await fetch("https://textutilserver.onrender.com/transcribe/converttotext", {
@@ -22,8 +25,8 @@ export default function TextForm(props) {
                 body: audioformdata
             })
             const json = await response.json()
-
-            setText(json.transcript.slice(4));
+            setloading(false);
+            setText(json.transcript.slice(5));
             setIsConfirmModalOpen({state:false})
     }
 
@@ -92,10 +95,15 @@ const copyText=()=>{
                 <Modal.Body>
                 <form onSubmit={handleformsubmit}>
                   <div className="form-group">
-                    <h5 className="modal-class">Add audio file in formats: WAV(.wav), MP3(.mp3), FLAC(.flac), OGG(.ogg), M4A(.m4a), AAC(.aac), AIFF(.aiff), AMR (.amr),WMA (.wma)</h5>
-                    <input type="file" className="form-control-file" onChange={onchangehandler} id="exampleFormControlFile1"/>
+                    <div>
+                      <h5 className="modal-class">Add audio file in formats: WAV(.wav), MP3(.mp3), FLAC(.flac), OGG(.ogg), M4A(.m4a), AAC(.aac), AIFF(.aiff), AMR (.amr),WMA (.wma)</h5>
+                    </div>
+                    <input type="file" className="form-control-file d-flex justify-content-center" onChange={onchangehandler} id="exampleFormControlFile1"/>
                   </div>
+                  {loading&&<Spinner/>}
+                  <div className="submit-btn-div">
                   <button type="submit" className="btn btn-primary">Submit</button>
+                  </div>
                 </form>
                 </Modal.Body>
             </Modal>
