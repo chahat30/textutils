@@ -131,17 +131,16 @@ const copyText=()=>{
             <h4>Find and Replace the text</h4>
             <input type="text" className="form-control my-2" placeholder="Enter the text you want to change" id="find"/>
             <input type="text" className="form-control mb-2" placeholder="Enter the new text you want to add" id="replace"/>
-            <button className="btn btn-primary mb-3 mx-1" onClick={handleFindAndReplace}>Replace</button>
+            <button className="btn btn-primary mb-3 mx-1 my-3" onClick={handleFindAndReplace}>Replace</button>
         </div>
-      </div>
-
-    <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
+        <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
       <h2>Text summary</h2>
       <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words {text.length} characters</p>
       <p>{0.008*text.split(/\s+/).filter((element)=>{return element.length!==0}).length} minutes read</p>
       <h2>Preview</h2>
       <p>{text}</p>
     </div>
+      </div>
     </>
   );
 }
