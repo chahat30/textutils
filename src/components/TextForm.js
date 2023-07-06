@@ -121,12 +121,12 @@ const copyText=()=>{
         ></textarea>
          </GrammarlyEditorPlugin>
       </div>
-      <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to Uppercase</button>
-      <button className="btn btn-primary mx-2" onClick={handleloClick}>Convert to Lowercase</button>
-      <button className="btn btn-primary mx-2" onClick={clearText}>Clear Text</button>
-      <button className="btn btn-primary mx-2" onClick={copyText}>Copy Text</button>
-      <button className="btn btn-primary mx-2" onClick={handleSentenceCaseClick}>Convert to Sentence Case</button>
-      <button className="btn btn-primary mx-2" onClick={handleOpenConfirmModal}>Convert audio to text</button>
+      <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert to Uppercase</button>
+      <button className="btn btn-primary mx-2 my-2" onClick={handleloClick}>Convert to Lowercase</button>
+      <button className="btn btn-primary mx-2 my-2" onClick={clearText}>Clear Text</button>
+      <button className="btn btn-primary mx-2 my-2" onClick={copyText}>Copy Text</button>
+      <button className="btn btn-primary mx-2 my-2" onClick={handleSentenceCaseClick}>Convert to Sentence Case</button>
+      <button className="btn btn-primary mx-2 my-2" onClick={handleOpenConfirmModal}>Convert audio to text</button>
       <div className="container my-3">
             <h4>Find and Replace the text</h4>
             <input type="text" className="form-control my-2" placeholder="Enter the text you want to change" id="find"/>
